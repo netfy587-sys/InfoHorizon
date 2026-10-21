@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>InfoHorizon – Online Adventures Platform</title>
+<style>
+:root{--bg:#fbf7f0;--surface:#fff;--ink:#16213a;--muted:#5b6479;--line:#eadfce;--a:#0e9aa7;--g:#f4a62a;--r:#ee5a4f;--hero:linear-gradient(180deg,#0b1736 0%,#1b3a6b 45%,#e8794f 82%,#f7c15c 100%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0a1126;--surface:#131d3b;--ink:#f3efe6;--muted:#a2abc4;--line:#23305a}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0a1126;--surface:#131d3b;--ink:#f3efe6;--muted:#a2abc4;--line:#23305a}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+.w{width:100%;max-width:1520px;margin:0 auto;padding:0 clamp(18px,4vw,72px)}
+header{position:absolute;left:0;right:0;top:0;z-index:5;color:#fff}
+header .w{display:flex;justify-content:space-between;align-items:center;height:80px}
+.logo{font-weight:800;font-size:1.45rem;letter-spacing:-.5px}.logo i{font-style:normal;color:var(--g)}
+nav{display:flex;gap:28px;font-size:.95rem}nav a{color:#ffffffcc;text-decoration:none}nav a:hover{color:#fff}
+.btn{display:inline-block;padding:15px 30px;border-radius:12px;font-weight:700;text-decoration:none;background:var(--g);color:#1a1200}
+.btn.o{background:transparent;color:#fff;border:2px solid #ffffff77}
+.hero{background:var(--hero);color:#fff;position:relative;overflow:hidden;text-align:center}
+.hero .w{padding-top:170px;padding-bottom:150px;position:relative;z-index:2}
+.sun{position:absolute;left:50%;bottom:-170px;width:420px;height:420px;margin-left:-210px;border-radius:50%;background:radial-gradient(circle,#fff3c4,#f7c15c 55%,#f7c15c00 72%);z-index:1}
+.stars{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 12% 18%,#fff,#0000),radial-gradient(2px 2px at 30% 42%,#fff,#0000),radial-gradient(1.5px 1.5px at 55% 15%,#fff,#0000),radial-gradient(2px 2px at 72% 30%,#fff,#0000),radial-gradient(1.5px 1.5px at 88% 12%,#fff,#0000),radial-gradient(1.5px 1.5px at 20% 60%,#fff,#0000),radial-gradient(2px 2px at 82% 52%,#fff,#0000)}
+.tag{display:inline-block;padding:8px 18px;border:1px solid #ffffff55;border-radius:999px;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;background:#ffffff14}
+h1{font-size:clamp(2.5rem,6vw,5.2rem);line-height:1.04;letter-spacing:-2px;max-width:1100px;margin:0 auto 22px}
+.hero p{font-size:1.2rem;max-width:720px;margin:0 auto 34px;opacity:.93}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.ribbon{background:var(--ink);color:var(--bg);overflow:hidden;white-space:nowrap;padding:16px 0}
+.ribbon div{display:inline-block;animation:mv 32s linear infinite;font-weight:700;letter-spacing:.5px}
+.ribbon span{margin:0 26px}.ribbon span::before{content:"✦";color:var(--g);margin-right:26px}
+@keyframes mv{to{transform:translateX(-50%)}}
+section.s{padding:92px 0}
+.hd{max-width:800px;margin-bottom:48px}.hd small{color:var(--r);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:.8rem}
+h2{font-size:clamp(1.9rem,3.8vw,3.1rem);line-height:1.12;letter-spacing:-1px;margin:8px 0 14px}.hd p{color:var(--muted);font-size:1.08rem}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.b{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:34px;grid-column:span 2;transition:.25s}
+.b:hover{transform:translateY(-6px);border-color:var(--a)}
+.b.big{grid-column:span 3}
+.b.dark{background:linear-gradient(135deg,#0b1736,#1b3a6b);color:#fff;border:0}.b.dark p{color:#c9d3ee}
+.em{font-size:2.3rem;margin-bottom:14px}
+.b h3{font-size:1.28rem;margin-bottom:8px}.b p{color:var(--muted)}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.list{list-style:none;padding:0;display:grid;gap:14px;margin-top:22px}.list li{display:flex;gap:12px;color:var(--muted)}.list li::before{content:"→";color:var(--a);font-weight:800}
+.panel{border-radius:32px;background:var(--hero);color:#fff;padding:54px;min-height:380px;display:flex;flex-direction:column;justify-content:flex-end}
+.panel h3{font-size:1.8rem;line-height:1.2;margin-bottom:8px}.panel p{opacity:.92}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
+.tl .t{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px}
+.t b{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--a);color:#fff;margin-bottom:14px}
+.t h3{margin-bottom:6px}.t p{color:var(--muted);font-size:.97rem}
+.quote{text-align:center;max-width:1000px;margin:0 auto}
+.quote h2{font-size:clamp(2rem,4.4vw,3.6rem)}.quote p{color:var(--muted);font-size:1.12rem;max-width:720px;margin:0 auto}
+.cs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.final{background:var(--hero);color:#fff;border-radius:34px;text-align:center;padding:clamp(40px,6vw,92px) 24px}
+.final h2{margin-bottom:12px}.final p{max-width:680px;margin:0 auto 28px;opacity:.93}
+footer{background:#0a1126;color:#aab4d0;padding:46px 0;margin-top:70px}
+footer .w{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}footer b{color:#fff;font-size:1.2rem}
+@media(max-width:900px){nav{display:none}.bento,.cs{grid-template-columns:1fr}.b,.b.big{grid-column:auto}.two,.tl{grid-template-columns:1fr}.hero .w{padding-top:130px;padding-bottom:120px}section.s{padding:60px 0}.panel{padding:34px;min-height:300px}}
+</style>
+</head>
+<body>
+<div class="hero">
+<header><div class="w"><div class="logo">InfoHorizon<i>.</i></div><nav><a href="#about">About</a><a href="#lifestyle">Lifestyle</a><a href="#steps">Journey</a><a href="#help">Support</a></nav><a class="btn" href="#start">Start Now</a></div></header>
+<div class="stars"></div><div class="sun"></div>
+<div class="w"><span class="tag">Online Adventures Platform</span>
+<h1>Creating a Magical Atmosphere, One Horizon at a Time</h1>
+<p>Welcome to InfoHorizon, a place built for curious minds who like to explore, learn and enjoy new experiences online.</p>
+<div class="cta"><a class="btn" href="#start">New chapter of luck begins now</a><a class="btn o" href="#about">Discover More</a></div></div></div>
+
+<div class="ribbon"><div><span>Anytime, Anywhere, Anything</span><span>Designed for dreamers, built for doers.</span><span>Small changes create big impacts.</span><span>More than a product, it’s a lifestyle.</span><span>Anytime, Anywhere, Anything</span><span>Designed for dreamers, built for doers.</span><span>Small changes create big impacts.</span><span>More than a product, it’s a lifestyle.</span></div></div>
+
+<section class="s" id="about"><div class="w two">
+<div><div class="hd" style="margin-bottom:0"><small>About Us</small><h2>We are a well-respected team of explorers</h2>
+<p>We are a well-respected group of creators, guides and curious people who believe every day deserves a little wonder. InfoHorizon was shaped around one simple idea: online adventures should feel welcoming, clear and genuinely enjoyable.</p></div>
+<ul class="list"><li>Thoughtfully designed spaces that are easy to enjoy</li><li>Fresh discoveries added with care and attention</li><li>A friendly community of people who love to explore</li><li>Clear, honest information at every step</li></ul></div>
+<div class="panel"><div class="em">🌅</div><h3>Because you deserve something truly special.</h3><p>Every detail is shaped to make your time here feel warm, calm and memorable.</p></div>
+</div></section>
+
+<section class="s band" id="lifestyle"><div class="w">
+<div class="hd"><small>The Experience</small><h2>Anytime, Anywhere, Anything</h2>
+<p>Open the platform on any device, at any hour, and step into an experience that fits your mood and your pace.</p></div>
+<div class="bento">
+<div class="b big dark"><div class="em">✨</div><h3>Creating a Magical Atmosphere</h3><p>Soft visuals, smooth movement and a welcoming feel turn every visit into a small escape from the everyday.</p></div>
+<div class="b big"><div class="em">🧭</div><h3>Designed for dreamers, built for doers.</h3><p>Big ideas deserve a practical home. Dream up your next adventure and find the tools to begin it.</p></div>
+<div class="b"><div class="em">🌱</div><h3>Small changes create big impacts.</h3><p>A single new habit or a fresh point of view can shift a whole day for the better.</p></div>
+<div class="b"><div class="em">🎁</div><h3>More than a product, it’s a lifestyle.</h3><p>It is a way of seeing each day as something to explore, enjoy and share.</p></div>
+<div class="b"><div class="em">🌍</div><h3>Open to Everyone</h3><p>Curious beginners and seasoned explorers alike will find a place to belong.</p></div>
+</div></div></section>
+
+<section class="s" id="steps"><div class="w">
+<div class="hd"><small>The Journey</small><h2>New chapter of luck begins now</h2>
+<p>Every adventure starts with a small first step. Here is how a visit to InfoHorizon usually unfolds.</p></div>
+<div class="tl">
+<div class="t"><b>1</b><h3>Look Around</h3><p>Browse at your own pace and see what catches your eye.</p></div>
+<div class="t"><b>2</b><h3>Pick Your Path</h3><p>Choose the kind of adventure that fits your interests today.</p></div>
+<div class="t"><b>3</b><h3>Dive In</h3><p>Enjoy a smooth, immersive experience from the first moment.</p></div>
+<div class="t"><b>4</b><h3>Come Back for More</h3><p>New discoveries keep every return visit fresh and exciting.</p></div>
+</div></div></section>
+
+<section class="s band"><div class="w"><div class="quote">
+<h2>Try it out today and you’ll never Disappoint</h2>
+<p>Give it a look, wander a little and see how it feels. Our goal is simple: a place you are glad you found, whenever you return to it.</p></div></div></section>
+
+<section class="s" id="help"><div class="w">
+<div class="hd"><small>Support</small><h2>Always Within Reach</h2>
+<p>Questions come up, and the InfoHorizon team is happy to help with clear and friendly answers.</p></div>
+<div class="cs">
+<div class="b" style="grid-column:auto"><div class="em">💬</div><h3>Friendly Guidance</h3><p>Ask about anything on the platform and get a helpful reply.</p></div>
+<div class="b" style="grid-column:auto"><div class="em">🔒</div><h3>Careful with Your Details</h3><p>Your information is handled with respect and attention.</p></div>
+<div class="b" style="grid-column:auto"><div class="em">⏱️</div><h3>Simple Next Steps</h3><p>Everything is laid out clearly, so you always know what comes next.</p></div>
+</div></div></section>
+
+<section class="s" id="start" style="padding-top:0"><div class="w"><div class="final">
+<h2>Don’t wait – your future starts now.</h2>
+<p>A new horizon is just a click away. Step in, explore and see where your next adventure leads.</p>
+<a class="btn" href="#about">Begin Your Adventure</a></div></div></section>
+
+<footer><div class="w"><div><b>InfoHorizon</b><br>Online Adventures Platform</div><div>© 2026 InfoHorizon. All rights reserved.</div></div></footer>
+</body>
+</html>
